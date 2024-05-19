@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<link rel="stylesheet" href="/pages/home/css/home.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<body>
+    <header>
+        <div id="container">
+        <h1>Meus Gastos</h1>
+            
+        <div class="button-container">
+            <button class="buttonHeader tab-btn" content-id="projetos">Projetos</button>
+            <button class="buttonHeader tab-btn" content-id="info">Informações</button>  
+        </div>
+            <button class="buttonHeader" id="btnLogout" onclick="logout()"><i class="bi bi-box-arrow-in-right"></i></button>   
+       </div>
+    <div class="tab-contents show">
+        <div class="content" id="projetos">
+            <div id="div-btn-aba">
+                <button id="btn-aba-1"><i class="bi bi-x-circle"></i></button>
+            </div>
+            <div id="txt-aba">
+              <p class="text-aba">Abaixo, seguem alguns outros projetos que eu realizei. Neles, meu foco foi mais direcionado à parte de HTML e CSS, aprendendo suas funcionalidades e limitações.Porém, a linguagem JavaScript foi essencial para a funcionalidade dos mesmos.
+              </p>  
+            </div>
+            
+            <div id="img">
+             <img class="content-img" id="img-dom" src="./img/dom-casmurro.png"  alt="projeto dom casmurro">
+           
+            <img class="content-img" id="img-gerador" src="./img/gerador-de-senha.png" alt="projeto Gerador de senha">
+            
+            <img class="content-img" id="img-one" src="./img/one-pieci.png"  alt="projeto one pieci">
+           
+           <img class="content-img" id="img-honda" src="./img/site-honda.png"  alt="projeto honda">   
+            </div>
+        </div>    
+    </div>
+    <div class="tab-contents">
+        <div class="content" id="info">
+          <div id="div-btn-aba">
+            <button id="btn-aba-2"><i class="bi bi-x-circle"></i></button>
+        </div>  
+            <p class="text-img">Meu objetivo com este projeto é treinar e aplicar todas as funcionalidades do chamado C.R.U.D. (Create, Read, Update, Delete), um acrônimo para as operações realizadas em informações armazenadas.<br/>
+                Create (Criar): Refere-se à operação de inserir novos dados no sistema.
+                Read (Ler): Consiste na operação de recuperar dados existentes do sistema.
+                Update (Atualizar): Esta operação modifica dados existentes.
+                Delete (Deletar): Refere-se à remoção de dados do sistema.</p>
+        </div>    
+    </div>
+    </header>
+    <main>
+        <div id="add-Spent">
+            <button id="add-Spent-Table">Adicionar <i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="transaction" id="addTransaction">
+                 <div class="form-field">
+                <div><label>Transação: *</label></div>
+                <input class="form-transaction"  type="radio" name="type" id="income"> 
+                <label class="form-transaction"  for="income">Receita</label>
+                <input class="form-transaction"  type="radio" name="type" id="expense" checked> 
+                <label class="form-transaction"  for="expense">Despesa</label>
+                </div>
+                <div class="form-field">
+                <div><label>Data: *</label></div>
+                <input onchange="onchangeData()" class="form-transaction" type="date" id="date" >
+                <p class="error" id="error-data">data é obrigatoria / invalida </p> 
+            </div>
+            <div class="form-field">
+            <div><label>Moeda: *</label></div>
+                <select onchange="onchangeMoeda()" class="form-transaction " id="moeda">
+                    <option value="">-- Selecione tipo de Moeda --</option>
+                    <option value="BRL">Real</option>
+                    <option value="USD">Dolar</option>
+                    <option value="EUR">Euro</option>
+                </select>
+                <p class="error" id="error-tipo-moeda">escolha o tipo de moeda!</p>
+            </div>
+            <div class="form-field">
+                <div><label>Valor: *</label></div>
+                <input onchange="onchangeValor()" class="form-transaction input"  type="number" id="valor">
+                <p class="error" id="error-valor">valor é obrigatório e presisa ser positivo</p>
+            </div>
+            <div class="form-field">
+                <div><label>Tipo de Despesa: *</label></div>
+                <select onchange="onchangeTransaction()" class="form-transaction " id="transaction">
+                    <option value="">-- Selecione tipo de Despesa --</option>
+                    <option>Supermercado</option>
+                    <option>Alimentação</option>
+                    <option>Salário</option>
+                    <option>Transporte</option>
+                    <option>Acomodação</option>
+                    <option>Outros</option>
+                </select>
+                <p class="error" id="error-tipo-transaction">escolha o tipo de transação!</p>
+            </div>
+            <div class="form-field">
+                <div><label>Descrição:</label></div>
+                <input type="text" class="form-transaction input" id="description"> 
+            </div> 
+            <div class="form-field">
+            <button class="form-btn" id="form-Cancel">cancelar</button>
+            <button onclick="saveTransaction()" class="form-btn" id="form-Save" disabled>salvar</button>   
+            </div>  
+  
+        </div>
+        <div id="div-ol">
+           <ol id="ol"></ol>  
+        </div>
+    </main>
+    <footer>
+        <div class="textFooter"><a class="text" href="https://www.instagram.com/_daniel_viana_/" target="_blank">Instagram <i class="bi bi-instagram"></i></a></div>
+        <div class="textFooter"><a class="text" href="https://www.facebook.com/carlosdaniel.viana" target="_blank">Facebook <i class="bi bi-facebook"></i></a></div>
+        <div class="textFooter"><a class="text" href="https://wa.me/558585648728" target="_blank">watszzap <i class="bi bi-whatsapp"></i></a></div>
+        <div class="textFooter"><a class="text" href="https://github.com/xDaniel-dev" target="_blank">GitHub <i class="bi bi-github"></i></a></div>
+    </footer>
+</body>
+<script src= "https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+<script src= "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+<script src= "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+<script src="/js/firebase.js"></script>
+<script src="./js.home/home.js"></script>
+<script src="/js/auth-guard.js"></script>
+<script src="./js.home/abas.js"></script>
+<script src="./js.home/botões.js"></script>
+<script src="./js.home/validação.js"></script>
+<script src="./js.home/formatação.js"></script>
+<script src="./js.home/saveFirestory.js"></script>
+<script src="/services/transaction.services.js"></script>
+
+</html>

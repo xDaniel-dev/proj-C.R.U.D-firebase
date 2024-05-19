@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atualização</title>
+    <link rel="stylesheet" href="./css/atualização.css">
+</head>
+<body>
+   
+    <div class="transaction" id="addTransaction">
+        <h1 class="form-field">Atualize Sua Transação</h1>
+        <div class="form-field">
+       <div><label>Transação: *</label></div>
+       <input class="form-transaction"  type="radio" name="type" id="income"> 
+       <label class="form-transaction"  for="income">Receita</label>
+       <input class="form-transaction"  type="radio" name="type" id="expense" checked> 
+       <label class="form-transaction"  for="expense">Despesa</label>
+       </div>
+       <div class="form-field">
+       <div><label>Data: *</label></div>
+       <input onchange="onchangeData()" class="form-transaction" type="date" id="date" >
+       <p class="error" id="error-data">data é obrigatoria / invalida </p> 
+   </div>
+   <div class="form-field">
+   <div><label>Moeda: *</label></div>
+       <select onchange="onchangeMoeda()" class="form-transaction " id="moeda">
+           <option value="">-- Selecione tipo de Moeda --</option>
+           <option value="BRL">Real</option>
+           <option value="USD">Dolar</option>
+           <option value="EUR">Euro</option>
+       </select>
+       <p class="error" id="error-tipo-moeda">escolha o tipo de moeda!</p>
+   </div>
+   <div class="form-field">
+       <div><label>Valor: *</label></div>
+       <input onchange="onchangeValor()" class="form-transaction input"  type="number" id="valor">
+       <p class="error" id="error-valor">valor é obrigatório e presisa ser positivo</p>
+   </div>
+   <div class="form-field">
+       <div><label>Tipo de Despesa: *</label></div>
+       <select onchange="onchangeTransaction()" class="form-transaction " id="transaction">
+           <option value="">-- Selecione tipo de Despesa --</option>
+           <option>Supermercado</option>
+           <option>Alimentação</option>
+           <option>Salário</option>
+           <option>Transporte</option>
+           <option>Acomodação</option>
+           <option>Outros</option>
+       </select>
+       <p class="error" id="error-tipo-transaction">escolha o tipo de transação!</p>
+   </div>
+   <div class="form-field">
+       <div><label>Descrição:</label></div>
+       <input type="text" class="form-transaction input" id="description"> 
+   </div> 
+   <div class="form-field">
+   <button class="form-btn" id="form-Cancel">cancelar</button>
+   <button onclick="saveTransaction()" class="form-btn" id="form-Save" disabled>salvar</button>   
+   </div>
+</body>
+<script src= "https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+<script src= "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth-compat.js"></script>
+<script src= "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
+<script src="/js/firebase.js"></script>
+<script src="/js/auth-guard.js"></script>
+<script src="./js.home/validação.js"></script>
+<script src="./js.home/saveFirestory.js"></script>
+<script src="/services/transaction.services.js"></script>
+
+</html>

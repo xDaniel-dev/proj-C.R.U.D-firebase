@@ -1,0 +1,77 @@
+#div1{
+    background-color: rgb(20, 20, 36);
+    border: 2px solid blue;
+    border-radius: 5%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    height: 30rem;
+    margin-left: 50rem;
+    margin-top: -44rem;
+    position: absolute;
+}
+#email, #password{
+    margin-top: 5rem;
+    background-color: rgb(31, 30, 30);
+    font-size: 30px;
+    border: 2px solid blue;
+    border-radius: 5px;   
+}
+#password{
+    margin-top: 2rem;
+}
+#email:focus , #password:focus{
+    outline: none;
+    box-shadow: 0 0 50px  rgba(0, 0, 255, 0.5);
+}
+#login,#recPassword,#txtRegister{
+    cursor: pointer;
+    transition:ease-in-out 0.3s;
+}
+#recPassword:active,#txtRegister:active{
+    opacity: 0.9;
+}
+#login{
+    width: 23rem;
+    margin-top: 2rem;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color:rgb(54, 54, 251);
+    border: none;
+    padding: 5px; 
+    color: rgb(20, 20, 36); 
+}
+#login:active {
+    background-color: rgba(1, 1, 19, 0.82);
+    transform: scale(0.98);
+}
+#login[disabled]{
+    background-color: rgba(1, 1, 19, 0.82)
+}
+#recPassword{
+    margin-top: 2rem;
+    color:rgb(0, 0, 255);
+    border: none;
+    background-color: transparent;
+}
+#recPassword[disabled], #txtRegister[disabled]{
+    opacity: 0.9;
+}
+
+#txtRegister{
+    color:rgb(0, 0, 255);
+    border: none;
+    background-color: transparent;
+}
+#h1{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    font-size: 90px;
+    margin-top: -35rem ;
+    margin-left: 10rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
