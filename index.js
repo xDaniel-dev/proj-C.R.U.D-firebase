@@ -64,26 +64,12 @@ function isEmailvalidate(){
 function toggleEmailErrors(){
     const email = forn.email().value
     forn.emailRequired().style.display = email ? 'none' : 'block'
-    // if(!email){
-    //     forn.emailRequired().style.display ='block'
-    // }else{
-    //     forn.emailRequired().style.display ='none'
-    // }
+
     forn.emailInvalid().style.display = validateEmail(email) ? 'none' : 'block'
-    // if(validateEmail(email)){
-    //     forn.emailInvalid().style.display ='none'
-    // }else{
-    //     forn.emailInvalid().style.display ='block'
-    // }
 }
 function togglePasswordErros(){
     const password = forn.password().value
     forn.passwordInvalid().style.display = password ? 'none' : 'block' 
-    // if(!password){
-    //     forn.passwordInvalid().style.display = 'block'
-    // }else{
-    //     forn.passwordInvalid().style.display = 'none'
-    // }
 }
 function toggleBottonsDisable(){
      const emailValidate = isEmailvalidate()
